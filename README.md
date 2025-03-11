@@ -3,6 +3,7 @@
 This code provides a simulation of the behavior of an elevator.
 
     ├── src                   # Contains source code and unit tests
+    ├── cicd                  # Contains jenkinsfile for potentially building and deploying code
     ├── pom.xml               # Using maven defines java dependencies, leveraging spring boot to bring in junit libraries
     └── README.md
 
