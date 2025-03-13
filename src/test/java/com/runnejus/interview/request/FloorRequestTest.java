@@ -13,7 +13,7 @@ public class FloorRequestTest {
     public void createRequestFloorOneToFloorTwo() {
         FloorRequest floorRequest = TestUtils.createRequest();
 
-        assertEquals(TestUtils.currentFloorIndex, floorRequest.getCurrentFloor().getFloorIndex());
+        assertEquals(TestUtils.currentFloorIndex, floorRequest.getCurrentFloor().getFloorId());
         assertNotNull(floorRequest);
         assertNotNull(floorRequest.getFloorsRequested());
         assertTrue(floorRequest.getFloorsRequested().contains(TestUtils.nextFloorIdentifier));

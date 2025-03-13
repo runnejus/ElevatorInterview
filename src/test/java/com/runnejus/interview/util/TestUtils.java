@@ -16,12 +16,12 @@ public class TestUtils {
     public static FloorRequest createRequest() {
         Set<FloorIdentifier> floorsRequested = new HashSet<FloorIdentifier>();
         floorsRequested.add(nextFloorIdentifier);
-        FloorIdentifier currentFloor = new FloorIdentifier(currentFloorIndex);
+        FloorIdentifier currentFloor = new FloorIdentifier(0, currentFloorIndex, "currentFloorName");
         FloorRequest floorRequest = new FloorRequestImpl(floorsRequested, currentFloor);
         return floorRequest;
     }
 
     public static FloorIdentifier createNextFloorIdentifier() {
-        return new FloorIdentifier(nextFloorIndex);
+        return new FloorIdentifier(currentFloorIndex+1, nextFloorIndex, "floorName");
     }
 }
