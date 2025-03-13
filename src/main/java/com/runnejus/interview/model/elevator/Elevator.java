@@ -1,7 +1,6 @@
 package com.runnejus.interview.model.elevator;
 
 import com.runnejus.interview.exception.IllegalFloorRequestException;
-import com.runnejus.interview.model.elevator.ElevatorDoorStatusCode;
 import com.runnejus.interview.model.floor.FloorIdentifier;
 
 public interface Elevator {

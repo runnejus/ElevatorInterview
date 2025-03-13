@@ -1,9 +1,7 @@
 package com.runnejus.interview.service;
 
-import com.runnejus.interview.requesthandler.FloorRequestHandler;
 import java.util.Map;
 
-import com.runnejus.interview.model.elevator.ElevatorKey;
 import com.runnejus.interview.request.FloorRequest;
 import com.runnejus.interview.model.floor.FloorRequestStatus;
 import com.runnejus.interview.model.floor.FloorRequestStatusCode;
@@ -11,13 +9,14 @@ import com.runnejus.interview.model.elevator.Elevator;
 
 public class ElevatorServiceImpl implements ElevatorService {
     
-    FloorRequestHandler floorRequestHandler = null;
-    Map<ElevatorKey, Elevator> evelators = null;
+    Map<String, Elevator> evelators = null;
     
 
-    public ElevatorServiceImpl(FloorRequestHandler floorRequestHandler, Map<ElevatorKey, Elevator> elevators) {
-        this.floorRequestHandler = floorRequestHandler;
-        this.evelators = elevators;
+    public ElevatorServiceImpl(Map<String, Elevator> elevatorsInput) throws IllegalArgumentException {
+        if(elevatorsInput == null || elevatorsInput.size() < 1) {
+            throw new IllegalArgumentException("Invalid Elevators Input Definition");
+        }
+        this.evelators = elevatorsInput;
     }
 
     @Override
@@ -28,7 +27,8 @@ public class ElevatorServiceImpl implements ElevatorService {
             Elevator elevator = findNearestElevator(floorRequest);
             //TODO
         } catch (Exception e) {
-            
+            status.updateFloorRequestStatus(FloorRequestStatusCode.FAILED, "Elevator has an unexpected failure");
+            return status;
         }
 
         status.updateFloorRequestStatus(FloorRequestStatusCode.COMPLETED, "Elevator has completed route");
@@ -41,14 +41,14 @@ public class ElevatorServiceImpl implements ElevatorService {
     }
 
     //This method will decide which elevator to give floor request based on which elevator is "closest" to current request
-    private Elevator findNearestElevator(FloorRequest floorRequest) throws Exception {
+    public Elevator findNearestElevator(FloorRequest floorRequest) throws Exception {
          if(evelators != null) {
              Elevator selectedElevator = null;
              int bestFloorDiff = -1;
-             for(ElevatorKey key : evelators.keySet()) {
+             for(String key : evelators.keySet()) {
                 Elevator currentElevator = evelators.get(key);
 
-                int currentFloorDiff = Math.abs(currentElevator.getCurrentFloor().getFloorIndex() - floorRequest.getCurrentFloor().getFloorIndex());
+                int currentFloorDiff = Math.abs(currentElevator.getCurrentFloor().getFloorIndex() - convertFloorIdToFloorIndex(floorRequest.getCurrentFloorId()));
             
                 if(bestFloorDiff == -1 || currentFloorDiff < bestFloorDiff) {
                     bestFloorDiff = currentFloorDiff;
@@ -62,10 +62,11 @@ public class ElevatorServiceImpl implements ElevatorService {
              return selectedElevator;
          }
 
-         //TODO write exception handling when elevators are not initialized
-         throw new Exception("Invalid Configuration");
-
-         
-    }    
+         return null;
+    }
+    
+    private int convertFloorIdToFloorIndex(int floorId) {
+        return floorId - 1;
+    }
 
 }
