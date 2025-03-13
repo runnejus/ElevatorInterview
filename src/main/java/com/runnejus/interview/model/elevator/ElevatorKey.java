@@ -1,4 +1,4 @@
-package com.runnejus.interview.model;
+package com.runnejus.interview.model.elevator;
 
 public class ElevatorKey {
     private String elevatorId;

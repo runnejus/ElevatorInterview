@@ -3,8 +3,7 @@ package com.runnejus.interview.model.elevator;
 import java.util.List;
 
 import com.runnejus.interview.exception.IllegalFloorRequestException;
-import com.runnejus.interview.model.ElevatorDoorStatusCode;
-import com.runnejus.interview.model.FloorIdentifier;
+import com.runnejus.interview.model.floor.FloorIdentifier;
 
 public class ElevatorImpl implements Elevator{
     

@@ -2,7 +2,7 @@ package com.runnejus.interview.request;
 
 import java.util.Set;
 
-import com.runnejus.interview.model.FloorIdentifier;
+import com.runnejus.interview.model.floor.FloorIdentifier;
 
 
 public interface FloorRequest {

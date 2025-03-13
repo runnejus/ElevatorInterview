@@ -11,9 +11,9 @@ import org.mockito.Mockito;
 import com.runnejus.interview.request.FloorRequest;
 import com.runnejus.interview.requesthandler.FloorRequestHandler;
 import com.runnejus.interview.util.TestUtils;
-import com.runnejus.interview.model.ElevatorKey;
-import com.runnejus.interview.model.FloorRequestStatus;
-import com.runnejus.interview.model.FloorRequestStatusCode;
+import com.runnejus.interview.model.elevator.ElevatorKey;
+import com.runnejus.interview.model.floor.FloorRequestStatus;
+import com.runnejus.interview.model.floor.FloorRequestStatusCode;
 import com.runnejus.interview.model.elevator.Elevator;
 
 public class ElevatorServiceTest {

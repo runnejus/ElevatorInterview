@@ -1,7 +1,58 @@
-//TODO
+#!groovy
 
-//build
+pipeline {
 
-//scan code
+    tools {
+        jdk 'JAVA_17'
+        maven 'MAVEN 3.9.9'
+    }
+    options {
+        timeout(time:1, unit:'HOURS')
+    }
+    environment {
+        //environment variables
+        
+    }
+    stages {
+        stage('Building Elevator Application') {
+            steps {
+                executeBuild()
+            }
+        }
+    }
 
-//deploy
+    def executeBuild() {
+        
+        stage('Prepare Git repo') {
+            //TODO checkout source code from github repository
+        }
+
+        //Leverage Maven to build code and run unit tests and integration tests
+        //Can create code coverage report to see how much of the tests cover the code
+        stage('Build') {
+            steps {
+                sh """
+                    mvn clean package
+                """
+
+                stash includes '**', name: 'source'
+            }
+        }
+
+        //Check for any vulnerabilities in the code or any of its dependencies
+        stage('Scan Code') {
+            //TODO perform security scan on code
+        }
+
+        //If all scans pass, then code is uploaded to central local repository
+        //Versioning: Start with snapshot revision and then when code is good state can create release candidate
+        stage('Upload Code') {
+            //TOOD
+        }
+
+        stage('Deploy Code to Test Environment') {
+            //TODO
+        }
+
+    }
+}

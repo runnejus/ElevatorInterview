@@ -1,10 +1,9 @@
-package com.runnejus.interview.model;
+package com.runnejus.interview.model.elevator;
 
 import org.junit.jupiter.api.Test;
 
 import com.runnejus.interview.exception.IllegalFloorRequestException;
-import com.runnejus.interview.model.elevator.Elevator;
-import com.runnejus.interview.model.elevator.ElevatorImpl;
+import com.runnejus.interview.model.floor.FloorIdentifier;
 
 import java.util.List;
 import java.util.ArrayList;

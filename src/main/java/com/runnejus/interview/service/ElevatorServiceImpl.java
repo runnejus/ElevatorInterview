@@ -3,10 +3,10 @@ package com.runnejus.interview.service;
 import com.runnejus.interview.requesthandler.FloorRequestHandler;
 import java.util.Map;
 
-import com.runnejus.interview.model.ElevatorKey;
+import com.runnejus.interview.model.elevator.ElevatorKey;
 import com.runnejus.interview.request.FloorRequest;
-import com.runnejus.interview.model.FloorRequestStatus;
-import com.runnejus.interview.model.FloorRequestStatusCode;
+import com.runnejus.interview.model.floor.FloorRequestStatus;
+import com.runnejus.interview.model.floor.FloorRequestStatusCode;
 import com.runnejus.interview.model.elevator.Elevator;
 
 public class ElevatorServiceImpl implements ElevatorService {

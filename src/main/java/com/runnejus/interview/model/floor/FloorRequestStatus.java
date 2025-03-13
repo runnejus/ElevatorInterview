@@ -1,4 +1,4 @@
-package com.runnejus.interview.model;
+package com.runnejus.interview.model.floor;
 
 public class FloorRequestStatus {
     private FloorRequestStatusCode floorRequestStatusCode;

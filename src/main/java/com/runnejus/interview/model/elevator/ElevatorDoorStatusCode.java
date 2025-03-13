@@ -1,4 +1,4 @@
-package com.runnejus.interview.model;
+package com.runnejus.interview.model.elevator;
 
 public enum ElevatorDoorStatusCode {
     OPEN, CLOSED
