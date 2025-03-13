@@ -26,12 +26,12 @@ pipeline {
     def executeBuild() {
         
         stage('Prepare Git repo') {
-                        checkout([$class: 'GitSCM', 
-                        branches: [[name: '*/main']], 
-                        extensions: [], 
-                        userRemoteConfigs: [[credentialsId: 'runnejus-personal-access-token', 
-                                            url: "${GITHUB_URL}"]]
-                        ]) 
+            checkout([$class: 'GitSCM', 
+                     branches: [[name: '*/main']], 
+                     extensions: [], 
+                     userRemoteConfigs: [[credentialsId: 'runnejus-personal-access-token', 
+                     url: "${GITHUB_URL}"]]
+           ]) 
         }
 
         //Leverage Maven to build code and run unit tests and integration tests
