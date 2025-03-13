@@ -1,5 +1,6 @@
 #!groovy
 
+//TODO requires creating personal access token/deploy key
 pipeline {
 
     tools {
@@ -11,7 +12,8 @@ pipeline {
     }
     environment {
         //environment variables
-        
+        GITHUB_URL = https://github.com/runnejus/ElevatorInterview.git
+    
     }
     stages {
         stage('Building Elevator Application') {
@@ -24,7 +26,12 @@ pipeline {
     def executeBuild() {
         
         stage('Prepare Git repo') {
-            //TODO checkout source code from github repository
+                        checkout([$class: 'GitSCM', 
+                        branches: [[name: '*/main']], 
+                        extensions: [], 
+                        userRemoteConfigs: [[credentialsId: 'runnejus-personal-access-token', 
+                                            url: "${GITHUB_URL}"]]
+                        ]) 
         }
 
         //Leverage Maven to build code and run unit tests and integration tests
