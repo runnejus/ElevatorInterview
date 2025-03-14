@@ -5,6 +5,11 @@ import java.util.Map;
 import com.runnejus.interview.model.elevator.Elevator;
 import com.runnejus.interview.request.FloorRequest;
 
+/*
+ * class ElevatorSelectorImpl takes in a floorRequest and compares that where the elevators are currently
+ * It will pick the elevator that is closest to where the user is currently located
+ * If both elevators are the same distances away from each other it will pick the first elevator
+ */
 public class ElevatorSelectorImpl implements ElevatorSelector {
 
     @Override

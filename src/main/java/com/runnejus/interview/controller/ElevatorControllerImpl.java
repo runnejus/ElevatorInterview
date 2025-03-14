@@ -7,7 +7,8 @@ import com.runnejus.interview.response.FloorRequestResponseImpl;
 import com.runnejus.interview.service.ElevatorService;
 
 /*
- *  This class is the ElevatorControllerImpl class (implements from ElevatorController) that will allow for users to interact with the Elevator by passing FloorRequest objects.
+ *  This class is the ElevatorControllerImpl class (implements from ElevatorController) that will allow for users to interact with the Elevator 
+ *  by passing FloorRequest objects.
  * 
  */
 public class ElevatorControllerImpl implements ElevatorController {

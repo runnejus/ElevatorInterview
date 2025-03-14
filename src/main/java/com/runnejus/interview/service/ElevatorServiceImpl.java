@@ -8,6 +8,16 @@ import com.runnejus.interview.model.floor.FloorRequestStatusCode;
 import com.runnejus.interview.model.elevator.Elevator;
 import com.runnejus.interview.exception.IllegalFloorRequestException;
 
+/*
+ * class ElevatorServiceImpl implements ElevatorService
+ * 
+ * Take in a map of elevators and the key is just a simple string to keep all the elevators unique
+ * 
+ * processFloorRequest method will call the ElevatorSelector class and will make the determination of which elevator should take on the request.
+ * After elevator is selected, operations will be performed on the cooresponding elevator to either come down or come up to pick up the user and
+ * then stop at 1 or many floors that user requested
+ * 
+ */
 public class ElevatorServiceImpl implements ElevatorService {
     
     private Map<String, Elevator> elevatorMap = null;
@@ -37,6 +47,7 @@ public class ElevatorServiceImpl implements ElevatorService {
 
     private Elevator performOperationsOnSelectedElevator(Elevator selectedElevator, FloorRequest floorRequest) throws IllegalFloorRequestException {
         if(floorRequest != null && floorRequest.getFloorIdsRequested().size() > 0) {
+            selectedElevator.stopAtFloor(convertFloorIdToFloorIndex(floorRequest.getCurrentFloorId()));
             for(Integer floodIdRequested : floorRequest.getFloorIdsRequested()) {
                 selectedElevator.stopAtFloor(convertFloorIdToFloorIndex(floodIdRequested));
             }

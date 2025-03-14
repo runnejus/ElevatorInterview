@@ -2,6 +2,11 @@ package com.runnejus.interview.request;
 
 import java.util.TreeSet;
 
+/*
+ * class FloorRequestImpl is a request object that allows a user to request a function of the elevator
+ * Request will contain a list of floors that the user would like to travel to and will include where the user currently resides
+ * 
+ */
 public class FloorRequestImpl implements FloorRequest {
 
     private TreeSet<Integer> floorsRequested;
