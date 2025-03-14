@@ -1,5 +1,9 @@
 package com.runnejus.interview.model.floor;
 
+/*
+ * 
+ * 
+ */
 public class FloorRequestStatus {
     private FloorRequestStatusCode floorRequestStatusCode;
     private String floorStatusDescription;

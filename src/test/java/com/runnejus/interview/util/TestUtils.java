@@ -2,8 +2,7 @@ package com.runnejus.interview.util;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.TreeSet;
 
 import com.runnejus.interview.model.floor.FloorIdentifier;
 import com.runnejus.interview.request.FloorRequest;
@@ -15,7 +14,7 @@ public class TestUtils {
     
     //This helper method creates a request for the elevator to go from floor one to floor two
     public static FloorRequest createRequest() {
-        Set<Integer> floorsRequested = new HashSet<Integer>();
+        TreeSet<Integer> floorsRequested = new TreeSet<Integer>();
         floorsRequested.add(nextFloorId);
         FloorRequest floorRequest = new FloorRequestImpl(floorsRequested, currentFloorId);
         return floorRequest;

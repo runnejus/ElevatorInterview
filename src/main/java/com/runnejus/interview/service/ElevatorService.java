@@ -5,7 +5,7 @@ import com.runnejus.interview.model.floor.FloorRequestStatus;
 
 public interface ElevatorService {
 
-      public FloorRequestStatus processFloorRequests(FloorRequest floorRequest) throws Exception;
+     public FloorRequestStatus processFloorRequests(FloorRequest floorRequest);
 
       
 }

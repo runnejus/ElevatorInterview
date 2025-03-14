@@ -1,8 +1,9 @@
 package com.runnejus.interview.request;
 
-import java.util.Set;
+import java.util.TreeSet;
 
 public interface FloorRequest {
-    public Set<Integer> getFloorIdsRequested(); 
+    public TreeSet<Integer> getFloorIdsRequested(); 
     public int getCurrentFloorId();
+    public String toString();
 }

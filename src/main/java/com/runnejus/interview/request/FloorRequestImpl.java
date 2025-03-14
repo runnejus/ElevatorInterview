@@ -1,22 +1,26 @@
 package com.runnejus.interview.request;
 
-import java.util.Set;
+import java.util.TreeSet;
 
 public class FloorRequestImpl implements FloorRequest {
 
-    private Set<Integer> floorsRequested;
+    private TreeSet<Integer> floorsRequested;
     private int currentFloorId;
 
-    public FloorRequestImpl(Set<Integer> floorsRequestedInput, int currentFloorIdInput) {    
-        this.floorsRequested = floorsRequestedInput;
+    public FloorRequestImpl(TreeSet<Integer> floorsRequestedInput, int currentFloorIdInput) {    
+        this.floorsRequested = floorsRequestedInput; 
         this.currentFloorId = currentFloorIdInput;
     }
 
-    public Set<Integer> getFloorIdsRequested() {
+    public TreeSet<Integer> getFloorIdsRequested() {
         return this.floorsRequested;
     }
 
     public int getCurrentFloorId() {
         return this.currentFloorId;
+    }
+
+    public String toString() {
+        return "[floorsRequested="+floorsRequested + ", currentFloorId=" + currentFloorId + "]"; 
     }
 }
