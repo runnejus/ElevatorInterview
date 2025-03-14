@@ -5,6 +5,15 @@ import java.util.List;
 import com.runnejus.interview.exception.IllegalFloorRequestException;
 import com.runnejus.interview.model.floor.FloorIdentifier;
 
+/*
+ * class +{@code ElevatorImpl} implements Elevator interface
+ * 
+ * totalFloors - are the total number of floors that the elevator goes up to
+ * defaultFloor - this is where the elevator starts at when application starts
+ * floors - list of all the floor identifiers that an elevator can stop at
+ * elevatorDoorStatusCode - provides a status code enum of either open or closed
+ * currentFloor - provides an identifier where the eleivator currently resides
+ */
 public class ElevatorImpl implements Elevator{
     
     private Integer totalFloors = null;
@@ -52,6 +61,12 @@ public class ElevatorImpl implements Elevator{
         this.currentFloor = floorIdentifer;
     }
 
+    /*
+     * method moveUpOneFloor
+     * 
+     * moves the elevator up one level
+     * throws IllegalFloorRequestException if request is invalid
+     */
     @Override
     public void moveUpOneFloor() throws IllegalFloorRequestException {
         if(this.getCurrentFloor().getFloorIndex() < this.getTotalFloors()-1) {
@@ -63,6 +78,12 @@ public class ElevatorImpl implements Elevator{
         }
     }
 
+    /*
+     * method moveDownOneFloor
+     * 
+     * moves the elevator down one level
+     * throws IllegalFloorRequestException if request is invalid
+     */
     @Override
     public void moveDownOneFloor() throws IllegalFloorRequestException {
         if(this.getCurrentFloor().getFloorIndex() > 0) {
@@ -79,6 +100,12 @@ public class ElevatorImpl implements Elevator{
         this.setCurrentFloor(this.floors.get(floorIndex));
     }
 
+    /*
+     * stopAtFloor method
+     * elevator will move to destinationed floor index whether that is up or down from its current location
+     * @param floorIndex - zero index value for where the elevator should stop
+     * 
+     */
     @Override
     public void stopAtFloor(int floorIndex) throws IllegalFloorRequestException {
         //which direction does the elevator need to go?

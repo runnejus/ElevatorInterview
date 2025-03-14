@@ -31,6 +31,13 @@ public class ElevatorServiceImpl implements ElevatorService {
         this.elevatorSelector = new ElevatorSelectorImpl();
     }
 
+    /*
+     * method processFloorRequest
+     * 
+     * @param floorRequest - request by user to stop at a floor
+     * @return FloorRequestStatus - returns the status of the operation that was attempted to be performed
+     * 
+     */
     @Override
     public FloorRequestStatus processFloorRequests(FloorRequest floorRequest) {
         try {
@@ -45,6 +52,13 @@ public class ElevatorServiceImpl implements ElevatorService {
         return createCompletedStatus("Elevator has completed route");
     }
 
+    /*
+     * method performOperationsOnSelectedElevator - call stop to return elevator to user as well as move elevator to all requested floors
+     * @param selectedElevator - elevator where operations will be performed against
+     * @param floorRequest - all floors that user has requested to have elevator stop at
+     * @return Elevator - elevator is returned by the method to make sure that latest update is captured in the service layer
+     * 
+     */
     private Elevator performOperationsOnSelectedElevator(Elevator selectedElevator, FloorRequest floorRequest) throws IllegalFloorRequestException {
         if(floorRequest != null && floorRequest.getFloorIdsRequested().size() > 0) {
             selectedElevator.stopAtFloor(convertFloorIdToFloorIndex(floorRequest.getCurrentFloorId()));

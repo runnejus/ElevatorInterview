@@ -12,6 +12,16 @@ import com.runnejus.interview.request.FloorRequest;
  */
 public class ElevatorSelectorImpl implements ElevatorSelector {
 
+    /*
+     * method findNearestElevator
+     * 
+     * goes thru collection of all elevators and finds the closest elevator
+     * 
+     * @param floorRequest - floor that is requested to vist by user
+     * @param elevatorMap - map of all the elevators that are initialized
+     * @return String of elevator key that will identify nearest elevator
+     * 
+     */
     @Override
     public String findNearestElevator(FloorRequest floorRequest, Map<String, Elevator> elevatorMap) {
         if(elevatorMap != null) {
