@@ -1,6 +1,6 @@
 # ElevatorInterview
 
-This code provides a simulation of the behavior of an elevator.
+Problem: Simulation of the behavior of an elevator. Leveraging Python or Java programming language.
 
     ├── src                   # Contains source code and unit tests
     ├── docs                  # Additional architecture documents
@@ -15,10 +15,10 @@ Additional work would need to be done to create a dockerfile that could then be 
 
 ![Class Diagram](https://github.com/runnejus/ElevatorInterview/blob/main/docs/elevator.drawio.png?raw=true)
 
-Have the Controller object take in requests from a user so there is a buffer between the service and the user.  I had originally created two different input objects one for controller and one for the service but merged them into a single objects since both objects at this time share a lot of the same attributes.  Allows for translation in case anything were to go wrong between the different logical layers.
+The ElevatorController object takes in requests from a user so there is a buffer between the ElevatorService and the user.  I had originally created two different input objects one for controller and one for the service but merged them into a single objects since both objects at this time share a lot of the same attributes (FloorRequest).  Allows for translation in case anything were to go wrong between the different logical layers.  The FloorRequest object leverages a TreeSet so that the floorsRequest are unique as well as being in sorted order, so therefore when elevator is executed there will be no duplication of effort as well as elevator will operate in order by jumping around.
 
 Leveraged Interfaces to allow for defining clear contracts between the different classes and then each class would be responsible for its independent logic versus trying to put multiple responsibilities in the single class file.
 There is an opportunitiy to clean up these interfaces more, there should really be more clear communication between the different layers so its clear what occurs between the different object as well as more exception handling to handle unexpected values from the users.
 
-This is a very similified simulation there is no factor for the physical gears or anything that would move the elevators.  These elevators move instantly since there is no delay between when the elevator moves and when a request is made.  There is also a lack of error handling so if something would go wrong the elevator would just stop wherever it was left on the last successful request.
+This is a very similified simulation there is no factor for the physical gears or anything that would move the elevators.  These elevators move instantly since there is no delay between when the elevator moves and when a request is made.  There is also a lack of error handling so if something would go wrong the elevator would just stop wherever it was left on the last successful request.  Additional there could be logging statements added to allow for debugging and troubleshooting to be performed on the code base.
 
